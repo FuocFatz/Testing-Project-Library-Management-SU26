@@ -1,0 +1,75 @@
+<Window x:Class="LibraryManagement.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Library Management Pro"
+        Width="1440" Height="900"
+        MinWidth="1180" MinHeight="720"
+        WindowStartupLocation="CenterScreen"
+        Background="#0A111E">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="246"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="#0D1627" BorderBrush="#1E2B43" BorderThickness="0,0,1,0">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Margin="18,22,18,12">
+                    <StackPanel Orientation="Horizontal">
+                        <Border Width="42" Height="42" Background="#4F7CFF" CornerRadius="12" VerticalAlignment="Center">
+                            <TextBlock Text="▣" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                        </Border>
+                        <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="LIBRARY" FontSize="15" FontWeight="Bold" Foreground="White"/>
+                            <TextBlock Text="MANAGEMENT PRO" FontSize="10" Foreground="#8493AB"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <TextBlock Text="WORKSPACE" Margin="22,16,0,8" Style="{StaticResource MutedText}" FontSize="10" FontWeight="Bold"/>
+                        <Button Style="{StaticResource NavButton}" Click="Dashboard_Click"><StackPanel Orientation="Horizontal"><TextBlock Text="⌂" Width="28" FontSize="18"/><TextBlock Text="Dashboard"/></StackPanel></Button>
+                        <Button Style="{StaticResource NavButton}" Click="Books_Click"><StackPanel Orientation="Horizontal"><TextBlock Text="▤" Width="28" FontSize="18"/><TextBlock Text="Books"/></StackPanel></Button>
+                        <Button Style="{StaticResource NavButton}" Click="Readers_Click"><StackPanel Orientation="Horizontal"><TextBlock Text="♙" Width="28" FontSize="18"/><TextBlock Text="Readers"/></StackPanel></Button>
+                        <Button Style="{StaticResource NavButton}" Click="Loans_Click"><StackPanel Orientation="Horizontal"><TextBlock Text="↔" Width="28" FontSize="18"/><TextBlock Text="Borrow &amp; Return"/></StackPanel></Button>
+                        <Button Style="{StaticResource NavButton}" Click="Reports_Click"><StackPanel Orientation="Horizontal"><TextBlock Text="◫" Width="28" FontSize="18"/><TextBlock Text="Reports"/></StackPanel></Button>
+
+                        <TextBlock Text="SYSTEM" Margin="22,24,0,8" Style="{StaticResource MutedText}" FontSize="10" FontWeight="Bold"/>
+                        <Button Style="{StaticResource NavButton}" Click="Refresh_Click"><StackPanel Orientation="Horizontal"><TextBlock Text="⟳" Width="28" FontSize="18"/><TextBlock Text="Refresh Data"/></StackPanel></Button>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <Border DockPanel.Dock="Bottom" Margin="14" Padding="12" Background="#121D30" CornerRadius="12" BorderBrush="#21314A" BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="LIBRARIAN ACCOUNT" Style="{StaticResource MutedText}" FontSize="9" FontWeight="Bold"/>
+                        <TextBlock Text="Administrator" Margin="0,4,0,0" FontWeight="SemiBold"/>
+                        <TextBlock Text="● Online" Foreground="#5ED6A3" FontSize="11" Margin="0,3,0,0"/>
+                    </StackPanel>
+                </Border>
+            </DockPanel>
+        </Border>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="72"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Background="#0A111E" BorderBrush="#1B2840" BorderThickness="0,0,0,1">
+                <Grid Margin="28,0,28,0">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Library Workspace" Style="{StaticResource MutedText}" FontSize="11"/>
+                        <TextBlock Text="Management Console" FontWeight="SemiBold" FontSize="17"/>
+                    </StackPanel>
+                    <Border HorizontalAlignment="Right" VerticalAlignment="Center" Background="#111B2D" CornerRadius="10" Padding="14,9" BorderBrush="#22304A" BorderThickness="1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="◆" Foreground="#74E0B3" Margin="0,0,8,0"/>
+                            <TextBlock Text="SQL Server Connected" Foreground="#B9C9DE" FontSize="12"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+            <ContentControl Grid.Row="1" Content="{Binding CurrentView}" Margin="28,22,28,22"/>
+        </Grid>
+    </Grid>
+</Window>
